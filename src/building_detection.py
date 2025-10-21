@@ -16,7 +16,7 @@ median_filtered = cv2.medianBlur(gray, 5)
 # two-way filter — smoothing while preserving contours
 bilateral_filtered = cv2.bilateralFilter(median_filtered, 19, 75, 75)
 
-# Local contrast enhancement (CLAHE)
+# local contrast enhancement
 clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
 enhanced = clahe.apply(bilateral_filtered)
 
@@ -72,3 +72,4 @@ plt.title(f"Discovered buildings: {num_buildings}")
 
 plt.tight_layout()
 plt.show()
+
